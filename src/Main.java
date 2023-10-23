@@ -9,7 +9,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите целое число: ");
+        System.out.print("Введите первое число: ");
         int a = scanner.nextInt();
 
         System.out.print("Если Вас интересует сложение, то введите цифру 1\nЕсли Вас интересует"
@@ -17,9 +17,9 @@ public class Main {
                + "\nЕсли Вас интересует деление, то введите цифру 4\nВаш выбор: ");
         int vybor = scanner.nextInt();
 
-        System.out.print("Введите целое число: ");
+        System.out.print("Введите второе число: ");
         int b = scanner.nextInt();
-
+        scanner.close();
 
         switch (vybor) {
             case 1:
@@ -35,13 +35,15 @@ public class Main {
                 System.out.println("\nПроизведение введённых Вами чисел: " + e);
                 break;
             case 4:
+                if (b==0){
+                    System.out.println("Деление на 0 невозможно");
+                    break;
+                }
                 int f = a / b;
                 System.out.println("\nЧастное введённых Вами чисел: " + f);
                 break;
             default:
-                System.out.println("\nВы не были внимательны, данная операция не предусмотрена.\nОтличного времени суток! До свидания!");
+                System.out.println("\nВы не были внимательны, данная операция не предусмотрена.\nОтличного времени суток! До свидания!))");
         }
-
-        scanner.close();
     }
 }
