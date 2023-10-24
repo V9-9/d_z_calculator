@@ -1,15 +1,16 @@
 import java.util.Scanner;
 
-/*     ДЗ: Доработать калькулятор, получение от пользователя действия, которое нужно выполнить.
-Можно получить таким образом - если пользователь вводит 1, то это сложение, 2 - разность и т.д.
-Вывести результат действия. Используйте конструкции if -else, case.                          */
+/* ДЗ доработать калькулятор на использование методов, разнести функционал по методам:
+сумма отдельно, разность отдельно и т.д Выполнить запрос новых данных в бесконечный цикл */
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите первое число: ");
+        while (true) {
+
+        System.out.print("\nВведите первое число: ");
         int a = scanner.nextInt();
 
         System.out.print("""
@@ -17,38 +18,58 @@ public class Main {
                 Если Вас интересует вычитание, то введите цифру 2
                 Если Вас интересует умножение, то введите цифру 3
                 Если Вас интересует деление, то введите цифру 4
-                Ваш выбор: """);
+                Ваш выбор:\s""");
         int vybor = scanner.nextInt();
 
         System.out.print("Введите второе число: ");
         int b = scanner.nextInt();
-        scanner.close();
+
+        int result = 0;
 
         switch (vybor) {
             case 1:
-                int c = a + b;
-                System.out.println("\nСумма введённых Вами чисел: " + c);
+                result = addition(a, b);
+                System.out.println("Сумма введённых Вами чисел: " + result);
                 break;
             case 2:
-                int d = a - b;
-                System.out.println("\nРазность введённых Вами чисел: " + d);
+                result = subtraction(a, b);
+                System.out.println("Разность введённых Вами чисел: " + result);
                 break;
             case 3:
-                int e = a * b;
-                System.out.println("\nПроизведение введённых Вами чисел: " + e);
+                result = multiplication(a, b);
+                System.out.println("Произведение введённых Вами чисел: " + result);
                 break;
             case 4:
-                if (b==0){
+                if (b == 0) {
                     System.out.println("Деление на 0 невозможно");
-                    break;
+                } else {
+                    result = division(a, b);
+                    System.out.println("Частное введённых Вами чисел: " + result);
                 }
-                int f = a / b;
-                System.out.println("\nЧастное введённых Вами чисел: " + f);
                 break;
             default:
                 System.out.println("""
                         Вы не были внимательны, данная операция не предусмотрена.
                         Отличного времени суток! До свидания!))""");
+                scanner.close();
+                return;
         }
+        }
+    }
+
+    public static int addition(int a, int b){
+        return a+b;
+    }
+
+    public static int subtraction(int a, int b){
+        return a-b;
+    }
+
+    public static int multiplication(int a, int b){
+        return a*b;
+    }
+
+    public static int division(int a, int b){
+        return a/b;
     }
 }
