@@ -29,22 +29,22 @@ public class Main {
         switch (vybor) {
             case 1:
                 result = addition(a, b);
-                System.out.println("Сумма введённых Вами чисел: " + result);
+                printResult("Сумма введённых Вами чисел: ", result);
                 break;
             case 2:
                 result = subtraction(a, b);
-                System.out.println("Разность введённых Вами чисел: " + result);
+                printResult("Разность введённых Вами чисел: ", result);
                 break;
             case 3:
                 result = multiplication(a, b);
-                System.out.println("Произведение введённых Вами чисел: " + result);
+                printResult("Произведение введённых Вами чисел: ", result);
                 break;
             case 4:
                 if (b == 0) {
-                    System.out.println("Деление на 0 невозможно");
+                    printMessage("Деление на 0 невозможно");
                 } else {
                     result = division(a, b);
-                    System.out.println("Частное введённых Вами чисел: " + result);
+                    printResult("Частное введённых Вами чисел: ", result);
                 }
                 break;
             default:
@@ -71,5 +71,13 @@ public class Main {
 
     public static int division(int a, int b){
         return a/b;
+    }
+
+    public static void printResult(String message, int result){
+        System.out.println(message + result);
+    }
+
+    public static void printMessage(String message){
+        System.out.println(message);
     }
 }
